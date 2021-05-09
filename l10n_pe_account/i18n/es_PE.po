@@ -1,0 +1,130 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_pe_account
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-11-24 03:32+0000\n"
+"PO-Revision-Date: 2017-11-23 22:38-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es_PE\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: l10n_pe_account
+#: model:ir.ui.view,arch_db:l10n_pe_account.report_invoice_document
+msgid "<span>Lt. </span>"
+msgstr "<span>Lt. </span>"
+
+#. module: l10n_pe_account
+#: model:ir.ui.view,arch_db:l10n_pe_account.report_invoice_document
+msgid "<span>S/N </span>"
+msgstr "<span>S/N </span>"
+
+#. module: l10n_pe_account
+#: model:ir.ui.view,arch_db:l10n_pe_account.report_delivery_document
+msgid "<strong>Invoice</strong>"
+msgstr "<strong>Invoice</strong>"
+
+#. module: l10n_pe_account
+#: model:ir.model.fields,field_description:l10n_pe_account.field_account_invoice_line_amount_discount
+msgid "Amount Discount"
+msgstr "Monto de Descuento"
+
+#. module: l10n_pe_account
+#: model:ir.ui.view,arch_db:l10n_pe_account.view_account_invoice_refund_dn
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: l10n_pe_account
+#: model:ir.ui.view,arch_db:l10n_pe_account.report_invoice_document
+msgid "Cant."
+msgstr "Cant."
+
+#. module: l10n_pe_account
+#: model:ir.ui.view,arch_db:l10n_pe_account.view_account_invoice_refund_dn
+msgid "Create Debit Note"
+msgstr "Crear nota de Débito"
+
+#. module: l10n_pe_account
+#: model:ir.model.fields,field_description:l10n_pe_account.field_account_journal_credit_note_id
+msgid "Credit Note"
+msgstr "Nota de Crédito"
+
+#. module: l10n_pe_account
+#: model:ir.model.fields,field_description:l10n_pe_account.field_account_journal_dedit_note_id
+#: model:ir.ui.view,arch_db:l10n_pe_account.invoice_view_form
+#: model:ir.ui.view,arch_db:l10n_pe_account.view_account_invoice_refund_dn
+msgid "Debit Note"
+msgstr "Nota de Débito"
+
+#. module: l10n_pe_account
+#: model:ir.ui.view,arch_db:l10n_pe_account.report_invoice_document
+msgid "FV."
+msgstr "FV."
+
+#. module: l10n_pe_account
+#: model:ir.model.fields,field_description:l10n_pe_account.field_account_invoice_internal_number
+#: model:ir.model.fields,field_description:l10n_pe_account.field_account_invoice_pe_stock_name
+#: model:ir.model.fields,field_description:l10n_pe_account.field_stock_picking_pe_invoice_name
+msgid "Internal Number"
+msgstr "Número Interno"
+
+#. module: l10n_pe_account
+#: model:ir.actions.act_window,name:l10n_pe_account.action_account_invoice_refund_debit
+#: model:ir.model,name:l10n_pe_account.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: l10n_pe_account
+#: model:ir.model,name:l10n_pe_account.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Detalle de Factura"
+
+#. module: l10n_pe_account
+#: model:ir.model.fields,field_description:l10n_pe_account.field_account_invoice_debit_invoice_id
+msgid "Invoice for which this invoice is the debit"
+msgstr "Invoice for which this invoice is the debit"
+
+#. module: l10n_pe_account
+#: model:ir.model,name:l10n_pe_account.model_account_journal
+msgid "Journal"
+msgstr "Diario"
+
+#. module: l10n_pe_account
+#: model:ir.model.fields,field_description:l10n_pe_account.field_account_invoice_line_pack_lot_ids
+msgid "Lots/Serials"
+msgstr "Lote/Serie"
+
+#. module: l10n_pe_account
+#: model:ir.model.fields,field_description:l10n_pe_account.field_account_invoice_line_pack_lot_name
+msgid "Lots/Serials Name"
+msgstr "Lotes/Series"
+
+#. module: l10n_pe_account
+#: model:ir.ui.view,arch_db:l10n_pe_account.view_account_journal_form
+msgid "Peruvian Settings"
+msgstr "Configuración Peruana"
+
+#. module: l10n_pe_account
+#: model:ir.model.fields,field_description:l10n_pe_account.field_account_invoice_pe_stock_ids
+#: model:ir.model.fields,field_description:l10n_pe_account.field_stock_picking_pe_invoice_ids
+msgid "Pickings"
+msgstr "Pickings"
+
+#. module: l10n_pe_account
+#: model:ir.model,name:l10n_pe_account.model_stock_picking
+msgid "Transfer"
+msgstr "Transferir"
+
+#. module: account
+#: model:ir.ui.view,arch_db:account.invoice_form
+#: model:ir.ui.view,arch_db:account.view_account_invoice_refund
+msgid "Add Credit Note"
+msgstr "Nota de credito"

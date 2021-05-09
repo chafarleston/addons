@@ -1,0 +1,427 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* l10n_pe_vat
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-25 05:12+0000\n"
+"PO-Revision-Date: 2019-02-25 05:12+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_pe_vat
+#: selection:res.partner,state:0
+msgid "ACTIVO"
+msgstr "Activo"
+
+#. module: l10n_pe_vat
+#: selection:res.partner,state:0
+msgid "ANUL.PROVI.-ACTO ILI"
+msgstr "Anulación Provicional - Acto Ilicito"
+
+#. module: l10n_pe_vat
+#: selection:res.partner,state:0
+msgid "ANULACION - ACTO ILI"
+msgstr "Anulación - Acto Ilicito"
+
+#. module: l10n_pe_vat
+#: selection:res.partner,state:0
+msgid "ANULACION - ERROR SU"
+msgstr "Anulación - Error su"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner__accounting_system
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_users__accounting_system
+msgid "Accounting System"
+msgstr "Sistema de Contabilidad"
+
+#. module: l10n_pe_vat
+#: model_terms:ir.ui.view,arch_db:l10n_pe_vat.view_partner_form
+msgid "Aconomic Ectivities"
+msgstr "Actividad Económica"
+
+#. module: l10n_pe_vat
+#: selection:res.partner,state:0
+msgid "BAJA DE OFICIO"
+msgstr "Baja de Oficio"
+
+#. module: l10n_pe_vat
+#: selection:res.partner,state:0
+msgid "BAJA DEFINITIVA"
+msgstr "Baja Definitiva"
+
+#. module: l10n_pe_vat
+#: selection:res.partner,state:0
+msgid "BAJA MULT.INSCR. Y O"
+msgstr "Baja mult.Inscr. y O"
+
+#. module: l10n_pe_vat
+#: selection:res.partner,state:0
+msgid "BAJA PROV. POR OFICI"
+msgstr "Baja Provicional de Oficio"
+
+#. module: l10n_pe_vat
+#: selection:res.partner,state:0
+msgid "BAJA PROVISIONAL"
+msgstr "Baja provisional"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner__commercial_name
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_users__commercial_name
+msgid "Commercial Name"
+msgstr "Nombre Comercial"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner__condition
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_users__condition
+msgid "Condition"
+msgstr "Condición"
+
+#. module: l10n_pe_vat
+#: model:ir.model,name:l10n_pe_vat.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner_representative__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner_representative__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner_representative__date_from
+msgid "Date From"
+msgstr "Desde"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner_representative__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner__doc_number
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner_representative__doc_number
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_users__doc_number
+msgid "Document Number"
+msgstr "Número de Documento"
+
+#. module: l10n_pe_vat
+#: code:addons/l10n_pe_vat/models/res_partner.py:405
+#, python-format
+msgid "Document Number already exists and violates unique field constrain"
+msgstr "Número de documento ya existe y viola la restricción de campo único"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner__doc_type
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner_representative__doc_type
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_users__doc_type
+#: model_terms:ir.ui.view,arch_db:l10n_pe_vat.view_partner_form
+msgid "Document Type"
+msgstr "Tipo de documento"
+
+#. module: l10n_pe_vat
+#: model_terms:ir.ui.view,arch_db:l10n_pe_vat.view_partner_form
+msgid "Document number"
+msgstr "Número de documento"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner__activities_ids
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_users__activities_ids
+msgid "Economic Activities"
+msgstr "Actividad Económica"
+
+#. module: l10n_pe_vat
+#: code:addons/l10n_pe_vat/models/res_partner.py:467
+#, python-format
+msgid "El Numero de DNI ingresado es incorrecto o no existe"
+msgstr "El número de DNI ingresado es incorrecto o no existe"
+
+#. module: l10n_pe_vat
+#: code:addons/l10n_pe_vat/models/res_partner.py:584
+#: code:addons/l10n_pe_vat/models/res_partner.py:590
+#, python-format
+msgid "El número de DNI ingresado es incorrecto"
+msgstr "El número de DNI ingresado es incorrecto"
+
+#. module: l10n_pe_vat
+#: code:addons/l10n_pe_vat/models/res_partner.py:61
+#: code:addons/l10n_pe_vat/models/res_partner.py:81
+#, python-format
+msgid "El servidor de consulta no está en linea, por favor reitentelo más tarde."
+msgstr "El servidor de consulta no está en linea, por favor reitentelo más tarde."
+
+#. module: l10n_pe_vat
+#: code:addons/l10n_pe_vat/models/res_partner.py:86
+#, python-format
+msgid "El servidor de consulta no responde, por favor reintentelo más tarde"
+msgstr "El servidor de consulta no responde, por favor reintentelo más tarde"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner__emission_system
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_users__emission_system
+msgid "Emission System"
+msgstr "Sistema de emisión"
+
+#. module: l10n_pe_vat
+#: code:addons/l10n_pe_vat/models/res_partner.py:396
+#, python-format
+msgid "Enter the document number"
+msgstr "Ingrese el número de documento"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner__retention_agent_from
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_users__retention_agent_from
+msgid "From"
+msgstr "De"
+
+#. module: l10n_pe_vat
+#: model_terms:ir.ui.view,arch_db:l10n_pe_vat.view_partner_form
+msgid "General information"
+msgstr "Información general"
+
+#. module: l10n_pe_vat
+#: selection:res.partner,condition:0
+msgid "HABIDO"
+msgstr "Habido"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner_representative__id
+msgid "ID"
+msgstr "Id"
+
+#. module: l10n_pe_vat
+#: selection:res.partner,state:0
+msgid "INHABILITADO-VENT.UN"
+msgstr "Inhabilitado-Vent.Un."
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,help:l10n_pe_vat.field_res_partner__commercial_name
+#: model:ir.model.fields,help:l10n_pe_vat.field_res_users__commercial_name
+msgid "If you do not have a commercial name, put \"-\" without quotes"
+msgstr "Si no tiene Nombre Comercial, ingrese \"-\" sin comillas"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,help:l10n_pe_vat.field_res_partner__legal_name
+#: model:ir.model.fields,help:l10n_pe_vat.field_res_users__legal_name
+msgid "If you do not have a legal name, put \"-\" without quotes"
+msgstr "Si no tiene Nombre Legal, ingrese \"-\" sin comillas"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner__retention_agent
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_users__retention_agent
+msgid "Is Agent"
+msgstr "Es Agente"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner__is_validate
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_users__is_validate
+msgid "Is Validated"
+msgstr "Es validado"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner_representative____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner__last_update
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_users__last_update
+msgid "Last Update"
+msgstr "Última actualización"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner_representative__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner_representative__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner__legal_name
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_users__legal_name
+#: model_terms:ir.ui.view,arch_db:l10n_pe_vat.view_partner_form
+msgid "Legal Name"
+msgstr "Nombre Legal"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner__main_activity
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_users__main_activity
+msgid "Main Economic Activity"
+msgstr "Actividad económica principal"
+
+#. module: l10n_pe_vat
+#: selection:res.partner,condition:0
+msgid "NO APLICABLE"
+msgstr "No aplicable"
+
+#. module: l10n_pe_vat
+#: selection:res.partner,condition:0
+msgid "NO HABIDO"
+msgstr "No habido"
+
+#. module: l10n_pe_vat
+#: selection:res.partner,condition:0
+msgid "NO HALLADO"
+msgstr "No hallado"
+
+#. module: l10n_pe_vat
+#: selection:res.partner,condition:0
+msgid "NO HALLADO CERRADO"
+msgstr "No hallado cerrado"
+
+#. module: l10n_pe_vat
+#: selection:res.partner,condition:0
+msgid "NO HALLADO DESTINATA"
+msgstr "No hallado destinata"
+
+#. module: l10n_pe_vat
+#: selection:res.partner,condition:0
+msgid "NO HALLADO FALLECIO"
+msgstr "No hallado falleció"
+
+#. module: l10n_pe_vat
+#: selection:res.partner,condition:0
+msgid "NO HALLADO NO EXISTE"
+msgstr "No hallado no existe"
+
+#. module: l10n_pe_vat
+#: selection:res.partner,condition:0
+msgid "NO HALLADO NRO.PUERT"
+msgstr "No hallado Nro. puert"
+
+#. module: l10n_pe_vat
+#: selection:res.partner,condition:0
+msgid "NO HALLADO OTROS MOT"
+msgstr "No hallado otros motivos"
+
+#. module: l10n_pe_vat
+#: selection:res.partner,condition:0
+msgid "NO HALLADO RECHAZADO"
+msgstr "No hallado rechazado"
+
+#. module: l10n_pe_vat
+#: selection:res.partner,condition:0
+msgid "NO HALLADO SE MUDO D"
+msgstr "No hallado, se mudó"
+
+#. module: l10n_pe_vat
+#: selection:res.partner,state:0
+msgid "NUM. INTERNO IDENTIF"
+msgstr "Número interno de identificación"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner_representative__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: l10n_pe_vat
+#: selection:res.partner,state:0
+msgid "OTROS OBLIGADOS"
+msgstr "Otros obligados"
+
+#. module: l10n_pe_vat
+#: selection:res.partner,condition:0
+msgid "PENDIENTE"
+msgstr "Pendiente"
+
+#. module: l10n_pe_vat
+#: selection:res.partner,state:0
+msgid "PENDIENTE DE INI. DE"
+msgstr "Pendiente de Ini. de"
+
+#. module: l10n_pe_vat
+#: selection:res.partner,condition:0
+msgid "POR VERIFICAR"
+msgstr "Por verificar"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner_representative__partner_id
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner_representative__position
+msgid "Position"
+msgstr "Posición"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner__representative_ids
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_users__representative_ids
+#: model_terms:ir.ui.view,arch_db:l10n_pe_vat.view_partner_form
+msgid "Representatives"
+msgstr "Representantes"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner__retention_agent_resolution
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_users__retention_agent_resolution
+msgid "Resolution"
+msgstr "Resolución"
+
+#. module: l10n_pe_vat
+#: model_terms:ir.ui.view,arch_db:l10n_pe_vat.view_partner_form
+msgid "Retention Agent"
+msgstr "Agente de retención"
+
+#. module: l10n_pe_vat
+#: model_terms:ir.ui.view,arch_db:l10n_pe_vat.view_partner_form
+msgid "SUNAT"
+msgstr "SUNAT"
+
+#. module: l10n_pe_vat
+#: code:addons/l10n_pe_vat/models/res_partner.py:394
+#, python-format
+msgid "Select a document type"
+msgstr "Seleccione un tipo de documento"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner__state
+msgid "State"
+msgstr "Estado"
+
+#. module: l10n_pe_vat
+#: model_terms:ir.ui.view,arch_db:l10n_pe_vat.view_partner_form
+msgid "Tradename"
+msgstr "Nombre comercial"
+
+#. module: l10n_pe_vat
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_partner__type_taxpayer
+#: model:ir.model.fields,field_description:l10n_pe_vat.field_res_users__type_taxpayer
+msgid "Type Taxpayer"
+msgstr "Tipo de contribuyente"
+
+#. module: l10n_pe_vat
+#: model_terms:ir.ui.view,arch_db:l10n_pe_vat.view_partner_form
+msgid "Update RUC/DNI"
+msgstr "Actualizar RUC/DNI"
+
+#. module: l10n_pe_vat
+#: model:ir.model,name:l10n_pe_vat.model_res_partner_representative
+msgid "res.partner.representative"
+msgstr "Representante"
+
+#. module: l10n_pe_vat
+#: code:addons/l10n_pe_vat/models/res_partner.py:458
+#, python-format
+msgid "the DNI entered is incorrect"
+msgstr "El DNI ingresado es incorrecto"
+
+#. module: l10n_pe_vat
+#: code:addons/l10n_pe_vat/models/res_partner.py:57
+#: code:addons/l10n_pe_vat/models/res_partner.py:402
+#, python-format
+msgid "the RUC entered is incorrect"
+msgstr "El RUC ingresado es incorrecto"
+

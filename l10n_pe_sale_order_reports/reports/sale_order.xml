@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="l10n_pe_sale_order_reports.report_sale_order_product" name="l10n_pe_sale_order_reports.report_sale_order_product">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <div class="header">
+                        <div class="row">
+                            <div class="col-3 mt32">
+                                <img src="/web/binary/company_logo" style="width:225px;height:120px;"/>
+                            </div>
+                            <div class="col-5 mt32" style="font-size: 10px;">
+                                <t t-esc="o.company_id.name"/>
+                                <br/>
+                                <t t-esc="o.company_id.street"/>
+                                <br/>
+                                <t t-esc="o.company_id.city"/>
+                                ,
+                                <t t-esc="o.company_id.state_id.name"/>
+                                ,
+                                <t t-esc="o.company_id.country_id.name"/>
+                                <br/>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="footer" style="margin-bottom: 0px;"></div> -->
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <div t-foreach="o.order_line" t-as="line">
+                                <table style="width:100%;" class="table table-sm">
+                                    <tr>
+                                        <td>
+                                            Cliente:
+                                            <p><span t-field="o.partner_id.name"/></p>
+                                        </td>
+                                        <td>
+                                            Producto Final:
+                                            <p><span t-esc="line.name"/></p>
+                                            <!-- <p><span t-esc="line.price_subtotal"/></p> -->
+                                        </td>
+                                        <td>
+                                            Fecha:
+                                            <p><span t-esc="o.date_order" t-options='{"widget": "date"}'/></p>
+                                        </td>
+                                    </tr>
+                                    <!-- <tr>
+                                        <td t-if="o.pricelist_id">
+                                            tarifa: <span t-esc="o.pricelist_id.item_ids[0].price_discount"></span>
+                                        </td>
+                                        <td>
+                                            cantidad <span t-esc="line.product_uom_qty"></span>
+                                        </td>
+                                    </tr> -->
+                                </table>
+                                <!-- <p></p>
+                                <p><span t-esc="line.product_id"/></p>
+                                <p><span t-esc="line.product_id.mrp_product_qty"/></p> -->
+                                <t t-set="acum" t-value="0"/>
+                                <t t-set="qty_acum" t-value="0"/>
+                                <table style="width:100%;" class="table">
+                                    <thead>
+                                        <tr>
+                                            <td>Producto</td>
+                                            <td class="text-right">Cantidad</td>
+                                            <td class="text-right">Precio</td>
+                                            <td class="text-right">Total</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="line.product_id.bom_ids.bom_line_ids" t-as="material">
+                                            <td>
+                                                <span t-esc="material.product_id.name"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-set="qty_line" t-value="material.product_qty * line.product_uom_qty"/>
+                                                <span t-esc="qty_line"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-if="o.pricelist_id.item_ids" t-set="pricelist_line" t-value="(material.product_id.standard_price * o.pricelist_id.item_ids[0].price_discount) / 100"/>
+                                                <t t-else="" t-set="pricelist_line" t-value="(material.product_id.standard_price) / 100"/>
+                                                <t t-set="price_line" t-value="material.product_id.standard_price + abs(pricelist_line)"/>
+                                                <t t-esc="price_line"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-set="total_line" t-value="price_line * qty_line" />
+                                                <span t-esc="total_line"/>
+                                                <t t-set="acum" t-value="acum + total_line"/>
+                                                <t t-set="qty_acum" t-value="qty_acum + qty_line"/>
+                                            </td>
+                                        </tr>
+                                        <!-- <tr>
+                                            <td colspan="3" style="text-align:right"><span >TOTAL</span></td>
+                                            <td><t t-esc="round(acum,2)"/></td>
+                                        </tr> -->
+                                    </tbody>
+                                    <tfoot>
+                                        <tr class="text-right">
+                                            <td colspan="1">
+                                                <span>SUB TOTAL</span>
+                                            </td>
+                                            <td>
+                                                <t t-esc="round(qty_acum, 2)"/>
+                                            </td>
+                                            <td colspan="2">
+                                                <t t-esc="round(acum, 1)"/>
+                                            </td>
+                                        </tr>
+                                        <!--  sacamos la diferencia de los precios y lo ponemos como dscto  -->
+                                        <tr class="text-right">
+                                            <td colspan="1">
+                                                <span>Descuento</span>
+                                            </td>
+                                            <td colspan="3">
+                                                <t t-set="tot_desc" t-value="round(abs(acum - line.price_total), 1)"/>
+                                                <t t-set="por_desc" t-value="(tot_desc * 100) / acum "/>
+                                                <t t-esc="round(por_desc, 1)"/>
+                                                <span>(%)</span>
+                                            </td>
+                                        </tr>
+                                        <tr class="text-right">
+                                            <td colspan="1">
+                                                <span>TOTAL</span>
+                                            </td>
+                                            <td colspan="3">
+                                                <t t-esc="line.price_total"/>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                <div style="page-break-after: always;"/>
+                            </div>
+                        </div>
+                    </t>
+                 </t>
+             </t>
+        </template>
+
+        <report id="report_sale_order_product"
+                model="sale.order"
+                name="l10n_pe_sale_order_reports.report_sale_order_product"
+                string="LDM"
+                report_type="qweb-pdf"/>
+    </data>
+</odoo>

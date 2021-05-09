@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_report_ple_13_tree" model="ir.ui.view">
+            <field name="name">report.ple.13.form</field>
+            <field name="model">report.ple.13</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="company_id"/>
+                    <field name="range_id"/>
+                    <field name="indicator_operation"/>
+                    <field name="indicator_content"/>
+                    <field name="currency_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_report_ple_13_form" model="ir.ui.view">
+            <field name="name">report.ple.13.form</field>
+            <field name="model">report.ple.13</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_generate" string="Generar" type="object" class="oe_highlight" states="draft,validated"/>
+                        <button name="action_declare" string="Declarar" type="object" class="oe_highlight" states="validated"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div style="width: 80%;">
+                            <table>
+                                <tr>
+                                    <td><label for="company_id"/></td>
+                                    <td style="padding-left: 20px;"><field name="company_id" style="width: 100%;"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="range_id"/></td>
+                                    <td style="padding-left: 20px;"><field name="range_id" style="width: 100%;"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="indicator_operation"/></td>
+                                    <td style="padding-left: 20px;"><field name="indicator_operation" style="width: 100%;"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="indicator_content"/></td>
+                                    <td style="padding-left: 20px;"><field name="indicator_content" style="width: 100%;"/></td>
+                                </tr>
+                                 <tr>
+                                    <td><label for="currency_id"/></td>
+                                    <td style="padding-left: 20px;"><field name="currency_id" style="width: 100%;"/></td>
+                                </tr>
+                                 <tr>
+                                    <td><label for="filename_txt"/></td>
+                                    <td style="padding-left: 20px;">
+                                        <field name="file_txt" filename="filename_txt" widget="binary"/>
+                                        <field name="filename_txt" invisible="True"/>
+                                        <field name="code" invisible="True"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- Sequences-->
+        <record model="ir.sequence" id="sequence_report_ple_13">
+            <field name="name">Registro de inventario permanente valorizado</field>
+            <field name="code">report.ple.13</field>
+            <field name="prefix">LRIPV-</field>
+            <field name="padding">3</field>
+        </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_product_category_form">
+            <field name="name">product.category.form</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="stock.product_category_form_view_inherit"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='removal_strategy_id']" position="after">
+                    <field name="l10n_pe_existence_type"/>
+                    <field name="l10n_pe_valuation_method"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_product_product_form">
+            <field name="name">product.product.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="stock.product_template_form_view_procurement_button"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='responsible_id']" position="after">
+                    <field name="l10n_pe_osce_id"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

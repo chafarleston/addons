@@ -1,0 +1,58 @@
+<odoo>
+  <data>
+    <!-- Reports -->
+    <report  id="report_l10n_pe_pos" model="report.l10n_pe.pos" string="Reporte kardex"  report_type="xlsx"  name="l10n_pe.pos"
+             file="Reporte por tienda" attachment_use="False"/>
+
+    <record id="view_report_l10n_pe_pos_form" model="ir.ui.view">
+      <field name="name">report.l10n_pe.pos_form</field>
+      <field name="model">report.l10n_pe.pos</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form edit="false">
+          <header>
+            <button name="%(report_l10n_pe_pos)d" type="action" string="Exportar" class="oe_highlight"/>
+          </header>
+          <sheet>
+            <group>
+              <group>
+                <field name="company_id" options="{'no_create': True, 'no_open': True}"/>
+                <field name="config_id" options="{'no_create': True, 'no_open': True}"/>
+                <field name="user_id" options="{'no_create': True, 'no_open': True}"/>
+              </group>
+              <group>
+                <field name="date_start"/>
+                <field name="date_end"/>
+              </group>
+            </group>
+            <div>
+              <button name="generate_detail" type="object" string="GENERAR DETALLE" class="oe_highlight"/>
+              <field name="line_ids">
+                <tree create="false">
+                  <field name="date_invoice"/>
+                  <field name="invoice_number"/>
+                  <field name="invoice_id" invisible="1"/>
+                  <field name="partner_id"/>
+                  <field name="user_id"/>
+                  <field name="floor_id"/>
+                  <field name="table_id"/>
+                  <field name="amount_total" sum="Total"/>
+                </tree>
+              </field>
+            </div>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="action_report_l10n_pe_pos" model="ir.actions.act_window">
+      <field name="name">Reporte por tienda</field>
+      <field name="res_model">report.l10n_pe.pos</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">form</field>
+    </record>
+
+    <menuitem id="menu_report_l10n_pe_pos" name="Reporte por tienda" action="action_report_l10n_pe_pos"
+              parent="point_of_sale.menu_point_rep"/>
+  </data>
+</odoo>

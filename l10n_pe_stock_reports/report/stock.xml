@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="l10n_pe_stock_reports.report_stock_blank" name="l10n_pe_stock_reports.report_stock_blank">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <div class="header">
+                        <div class="row">
+
+                        </div>
+                    </div>
+                    <div class="footer" style="margin-bottom: 0px;">
+
+                    </div>
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <br/>
+                            <br/>
+                            <table style="width:55%;margin-top:10px;">
+                                <tr>
+                                    <td><div style="text-align: center;"><t t-esc="o.date" t-options='{"widget": "date"}'/></div></td>
+                                    <td><div style="text-align: center;"><t t-esc="o.scheduled_date" t-options='{"widget": "date"}'/></div></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <div class="clearfix"/>
+                            <table style="width:100%;height:60px;">
+                                <tr>
+                                    <td>
+                                        <div style="width:450px;padding-left:20px;">
+                                            <t t-esc="o.sudo().picking_type_id.warehouse_id.partner_id.street"/>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <t t-esc="o.l10n_pe_addressee_id.street"/>
+                                            <span t-esc="o.l10n_pe_addressee_id.l10n_pe_district_id.name"></span>,
+                                            <span t-esc="o.l10n_pe_addressee_id.l10n_pe_province_id.name"></span> -
+                                            <span t-esc="o.l10n_pe_addressee_id.state_id.name"></span>.
+                                            <span t-esc="o.l10n_pe_addressee_id.country_id.name"></span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br/>
+                            <div class="clearfix"/>
+                            <table style="width:100%;">
+                                <tr>
+                                    <td>
+                                        <div style="width:450px;padding-left:20px;">
+                                            <span t-field="o.partner_id.parent_id" t-options='{"widget": "contact", "fields": ["name"], "no_marker": True}'/>
+                                            <div style="margin-left: 250px;">
+                                                <span t-field="o.partner_id.parent_id.l10n_pe_document_number"/>
+                                            </div>
+                                       </div>
+                                   </td>
+                                    <td>
+                                        <!-- <t t-if="o.transfer_mode=='public'">
+                                            <br/>
+                                            <br/>
+                                            <span t-field="o.carrier_number"/>
+                                        </t>
+                                        <t t-if="o.transfer_mode=='private'">
+                                            <span t-field="o.driver_name_car"/>,
+                                            <span t-field="o.drive_plate_number"/>
+                                            <br/>
+                                            <br/>
+                                            <span t-field="o.driver_licence"/>
+                                        </t> -->
+                                    </td>
+                                </tr>
+                            </table>
+                            <br/>
+                            <br/>
+                            <div class="clearfix"/>
+                            <div style="padding-left:20px;padding-right:20px;margin-top:5px;">
+                                <table style="width:100%;" t-if="o.move_line_ids">
+                                    <tr t-foreach="o.move_lines" t-as="line">
+                                        <td>
+                                            <span t-esc="line.quantity_done"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="line.product_id.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="line.product_uom.name"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                        </div>
+                    </t>
+                 </t>
+             </t>
+        </template>
+
+        <report id="report_stock_blank"
+                model="stock.picking"
+                name="l10n_pe_stock_reports.report_stock_blank"
+                string="Guía de Remisión"
+                report_type="qweb-pdf"/>
+    </data>
+</odoo>

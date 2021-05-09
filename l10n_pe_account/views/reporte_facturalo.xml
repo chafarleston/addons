@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="facturaloperu_api_invoice" name="facturaloperu_api_invoice">
+            <t t-call="web.html_container">
+              <t t-foreach="docs" t-as="doc">
+                <div class="header">
+                    <div class="row">
+                        <div class="col-3 mt32">
+                            <img src='/web/binary/company_logo' style="width:150px;height:100px;" />
+                        </div>
+                        <div class="col-5 mt32">
+                            <t t-esc="doc.company_id.name"/>
+                            <br/>
+                            <t t-esc="doc.company_id.city"/>,
+                            <t t-esc="doc.company_id.state_id.name"/>,
+                            <t t-esc="doc.company_id.country_id.name"/>
+                            <br/>
+                            <t t-esc="doc.company_id.street"/>
+                            <br/>
+                            <span t-if="doc.company_id.phone">
+                                Telf.:<t t-esc="doc.company_id.phone"/>
+                            </span>
+                        </div>
+                        <div class="col-4 mt32" style="text-align:center;border: 2px solid #000;padding-left:10px;padding-right:10px;">
+                            <h4>
+                                RUC: <t t-esc="doc.company_id.partner_id.l10n_pe_document_number"/>
+                            </h4>
+                             <h4>
+                                <t t-esc="doc.journal_id.name"/>
+                            </h4>
+                             <h4>
+                                <t t-esc="doc.number"/>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+
+                    <p style="text-align: center;font-size: 12px;">
+                      <t t-esc="doc.company_id.email"/>
+                    </p>
+                    <t t-foreach="doc.company_id.bank_ids" t-as="bank">
+                      <p style="font-size: 12px;text-align: center;">
+                        <t t-esc="doc.company_id.name"/>:
+                        <t t-esc="bank.bank_name"/> -
+                        <t t-esc="bank.acc_number"/>
+                      </p>
+                    </t>
+                    <p>
+                        Esta es una representación impresa de <t t-esc="doc.journal_id.name"/>.<br/>
+                        Puede consultar en <a href="http://e-consulta.sunat.gob.pe/cl-at-itconcompag/ccS01Alias">http://e-consulta.sunat.gob.pe/cl-at-itconcompag/ccS01Alias</a>
+                    </p>
+                    <ul class="list-inline" style="font-size:10px;color:#bbb;">
+                        <li>Página:</li>
+                        <li><span class="page"/></li>
+                        <li>/</li>
+                        <li><span class="topage"/></li>
+                    </ul>
+                </div>
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <style type="text/css">
+                            div.box.annulled:after {
+                                content: "ANULADO";
+                                position: absolute;
+                                top: 250px;
+                                left: 200px;
+                                z-index: 1;
+                                font-family: Arial,sans-serif;
+                                -webkit-transform: rotate(-45deg);
+                                -moz-transform: rotate(-45deg);
+                                -ms-transform: rotate(-45deg);
+                                -o-transform: rotate(-45deg);
+                                transform: rotate(-45deg);
+                                font-size: 80px;
+                                color: #c00;
+                                background: #fff;
+                                border: solid 4px #c00;
+                                padding: 5px;
+                                border-radius: 5px;
+                                zoom: 1;
+                                filter: alpha(opacity=20);
+                                opacity: 0.4;
+                                -webkit-text-shadow: 0 0 2px #c00;
+                                text-shadow: 0 0 2px #c00;
+                                box-shadow: 0 0 2px #c00;
+                            }
+                            div.box.rejected:after {
+                                content: "RECHAZADO";
+                            }
+                        </style>
+                        <t t-if="doc.l10n_pe_facturalo_state=='Anulado'">
+                            <div class="box annulled"></div>
+                        </t>
+                        <t t-if="doc.l10n_pe_facturalo_state=='Rechazado'">
+                            <div class="box annulled rejected"></div>
+                        </t>
+                        <div name="invoice_address" class="row mt32 mb32"  style="border: 1px solid #333">
+                            <div class="col-12">
+                                <t t-esc="doc.partner_id.name"/>
+                                <br/>
+                                <t t-if="doc.partner_id.l10n_pe_document_type == '0'">
+                                    <span>DOCUMENTO</span>
+                                </t>
+                                <t t-if="doc.partner_id.l10n_pe_document_type == '1'">
+                                    <span>DNI</span>
+                                </t>
+                                <t t-if="doc.partner_id.l10n_pe_document_type == '4'">
+                                    <span>CARNET DE EXTRANJERIA</span>
+                                </t>
+                                <t t-if="doc.partner_id.l10n_pe_document_type == '6'">
+                                    <span>RUC</span>
+                                </t>
+                                <t t-if="doc.partner_id.l10n_pe_document_type == '7'">
+                                    <span>PASAPORTE</span>
+                                </t>
+                                : <span t-field="doc.partner_id.l10n_pe_document_number"/>
+                                <br/>
+                                <t t-esc="doc.partner_id.country_id.name"/>, <t t-esc="doc.partner_id.state_id.name"/> - <t t-esc="doc.partner_id.city"/>
+                                <br/> <t t-esc="doc.partner_id.street"/>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="row mt32 mb32"  style="border: 1px solid #333">
+                                <div class="col-auto mw-100 mb-2" style="margin-left: 30px;" t-if="doc.name">
+                                    Descripción:
+                                    <p t-field="doc.name"/>
+                                </div>
+                                <div class="col-auto mw-100 mb-2"   t-if="doc.date_invoice">
+                                    Fecha de Emisión:
+                                    <p t-field="doc.date_invoice"/>
+                                </div>
+                                <div class="col-auto mw-100 mb-2" t-if="doc.date_due and doc.type == 'out_invoice' and (doc.state == 'open' or doc.state == 'paid')">
+                                    Fecha de Vencimiento:
+                                    <p t-field="doc.date_due"/>
+                                </div>
+                                <div class="col-auto mw-100 mb-2"   t-if="doc.date_invoice">
+                                    Moneda:
+                                    <p t-field="doc.currency_id.name"/>
+                                </div>
+                                <div class="col-auto mw-100 mb-2"  t-if="doc.origin">
+                                    Recurso:
+                                    <p t-field="doc.origin"/>
+                                </div>
+                                <div class="col-auto mw-100 mb-2"  t-if="doc.partner_id.ref">
+                                    Codigo de Cliente:
+                                    <p t-field="doc.partner_id.ref"/>
+                                </div>
+                                <div name="reference" class="col-auto mw-100 mb-2" t-if="doc.reference">
+                                    Vendedor:
+                                    <p t-esc="doc.user_id.name"/>
+                                </div>
+                                <div class="col-auto mw-100 mb-2"  t-if="doc.date_invoice">
+                                    Forma de Pago:
+                                    <p t-field="doc.payment_term_id.name"/>
+                                </div>
+                                <div class="col-auto mw-100 mb-2">
+                                    Guias de remisión:
+                                    <t t-foreach="doc.picking_ids" t-as="guides">
+                                        <p>
+                                            <span t-if="guides.l10n_pe_is_internal_document">
+                                                <span t-esc="guides.l10n_pe_internal_serie_id.name" />-
+                                                <span t-esc="guides.l10n_pe_internal_number" />
+                                            </span>
+                                            <span t-esc="guides.l10n_pe_number" />
+                                        </p>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <t t-set="display_discount" t-value="any([l.discount for l in doc.invoice_line_ids])"/>
+
+                        <table class="table table-condensed" name="invoice_line_table">
+                            <thead>
+                                <tr>
+                                    <th>Descripción</th>
+                                    <th class="text-right">Cantidad</th>
+                                    <th class="text-right">Precio Unitario</th>
+                                    <th class="text-right">Unidad</th>
+                                    <th class="text-right">Importe</th>
+                                    <th t-if="display_discount" class="text-right">Desc.(%)</th>
+                                    <th class="text-right">IGV</th>
+                                    <th class="text-right">Neto Total</th>
+                                </tr>
+                            </thead>
+                            <tbody class="invoice_tbody">
+                                <tr t-foreach="doc.invoice_line_ids" t-as="l">
+                                    <td><span t-field="l.name"/></td>
+                                    <td class="text-right"> <!-- cantidad -->
+                                        <span t-field="l.quantity"/> <!-- cantidad -->
+                                    </td>
+                                    <td class="text-right"> <!-- pre.unit -->
+                                        <span t-field="l.price_unit"/> <!-- pre.unit -->
+                                    </td>
+                                    <td class="text-right"> <!-- uni -->
+                                        <span t-field="l.uom_id.name"/> <!-- uni -->
+                                    </td>
+                                    <td class="text-right">
+                                        <t t-set="pq" t-value="l.price_unit * l.quantity"/> <!-- importe -->
+                                        <t t-esc="pq" t-options='{"widget": "float", "precision": 2}'/>
+                                    </td>
+                                    <td t-if="display_discount" class="text-right">
+                                        <span t-field="l.discount"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="', '.join(map(lambda x: (x.description or x.name), l.invoice_line_tax_ids))"/>
+                                    </td>
+                                    <td class="text-right" id="subtotal">
+                                        <span t-field="l.price_subtotal"
+                                            t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                    </td>
+                                </tr>
+                                <tr t-foreach="range(max(5-len(doc.invoice_line_ids),0))" t-as="l">
+                                    <td t-translation="off">&amp;nbsp;</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td t-if="display_discount"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                       <div class="clearfix">
+                        <div id="total" class="row">
+                            <div t-attf-class="#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto">
+                                <table class="table table-sm" style="page-break-inside: avoid;">
+                                    <tr class="border-black o_subtotal" style="">
+                                        <td><strong>Subtotal</strong></td>
+                                        <td class="text-right">
+                                            <span t-field="o.amount_untaxed"/>
+                                        </td>
+                                    </tr>
+                                    <t t-foreach="o.amount_by_group" t-as="amount_by_group">
+                                        <tr style="">
+                                            <t t-if="len(o.tax_line_ids) == 1 and o.amount_untaxed == amount_by_group[2]">
+                                                <td><span t-esc="amount_by_group[0]"/></td>
+                                                <td class="text-right o_price_total">
+                                                    <span t-esc="amount_by_group[3]" />
+                                                </td>
+                                            </t>
+                                            <t t-else="">
+                                                <td>
+                                                    <span t-esc="amount_by_group[0]"/>
+                                                    <span>&amp;nbsp;<span>on</span>
+                                                        <t t-esc="amount_by_group[4]"/>
+                                                    </span>
+                                                </td>
+                                                <td class="text-right o_price_total">
+                                                    <span t-esc="amount_by_group[3]"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <tr class="border-black o_total">
+                                        <td><strong>Total</strong></td>
+                                        <td class="text-right">
+                                            <span t-field="o.amount_total"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                       </div>
+                        <div class="text-left">
+                          <div class="col-xs-4">
+                            <p>
+                                Son:
+                                <span t-field="doc.l10n_pe_amount_text"/>
+                                <t t-if="doc.currency_id.name == 'PEN'">
+                                    SOLES
+                                </t>
+                                <t t-if="doc.currency_id.name == 'USD'">
+                                    DOLARES AMERICANOS
+                                </t>
+                            </p>
+                            <div t-if="doc.comment" style="min-height: 50px">
+                                <p>
+                                    Observaciones: <span t-field="doc.comment"/>
+                                </p>
+                            </div>
+                            <p>Cancelada / Canjeada</p>
+                            <p>
+                                ____ de ____________ 20___
+                            </p>
+                          </div>
+                        </div>
+                        <div class="text-right">
+                         <img t-att-src="'/report/barcode/?type=%s&amp;value=%s' % ('QR',doc.company_id.partner_id.l10n_pe_document_number+'|'+doc.journal_id.name+'|'+doc.number+'|'+str(doc.amount_total)+'|'+doc.create_date.strftime('%m/%d/%y')+'|'+doc.partner_id.l10n_pe_document_type+'|'+doc.partner_id.l10n_pe_document_number)" style="width:200px;height:200px;"/>
+
+                        </div>
+                    <!--
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <t t-foreach="doc.company_id.bank_ids" t-as="bank">
+                                    <p>
+                                        <t t-esc="doc.company_id.name"/>:
+                                        <t t-esc="bank.bank_name"/> -
+                                        <t t-esc="bank.acc_number"/>
+                                    </p>
+                                </t>
+                            </div>
+                            <div class="col-xs-4">
+                                <p>Cancelada / Canjeada</p>
+                                <p>
+                                    ____ de ____________ 20___
+                                </p>
+                            </div>
+                            <div class="col-xs-4 text-right">
+                               <img
+                                t-attf-src="data:image/*;base64,{{d"oc.api_qr}}
+                                />
+                            </div>
+                        </div>-->
+
+                    </div>
+                </t>
+              </t>
+            </t>
+        </template>
+        <template id="fish_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="l10n_pe_account.facturaloperu_api_invoice" t-lang="o.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

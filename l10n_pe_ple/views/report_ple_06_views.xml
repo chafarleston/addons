@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_report_ple_06_tree" model="ir.ui.view">
+            <field name="name">report.ple.06.form</field>
+            <field name="model">report.ple.06</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="company_id"/>
+                    <field name="range_id"/>
+                    <field name="indicator_operation"/>
+                    <field name="indicator_content"/>
+                    <field name="currency_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_report_ple_06_form" model="ir.ui.view">
+            <field name="name">report.ple.06.form</field>
+            <field name="model">report.ple.06</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_generate" string="Generar" type="object" class="oe_highlight" states="draft,validated"/>
+                        <button name="action_declare" string="Declarar" type="object" class="oe_highlight" states="validated"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div style="width: 70%;">
+                            <table>
+                                <tr>
+                                    <td><label for="company_id"/></td>
+                                    <td style="padding-left: 20px;">
+                                        <field name="company_id" style="width: 100%;" options="{'no_create': True, 'no_open': True}"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="range_id"/></td>
+                                    <td style="padding-left: 20px;">
+                                        <field name="range_id" style="width: 100%;" options="{'no_create': True, 'no_open': True}"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="indicator_operation"/></td>
+                                    <td style="padding-left: 20px;"><field name="indicator_operation" style="width: 100%;"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="indicator_content"/></td>
+                                    <td style="padding-left: 20px;"><field name="indicator_content" style="width: 100%;"/></td>
+                                </tr>
+                                 <tr>
+                                    <td><label for="operation_type_sunat"/></td>
+                                    <td style="padding-left: 20px;"><field name="operation_type_sunat" style="width: 100%;"/></td>
+                                </tr>
+                                 <tr>
+                                    <td><label for="currency_id"/></td>
+                                    <td style="padding-left: 20px;">
+                                        <field name="currency_id" style="width: 100%;" options="{'no_create': True, 'no_open': True}"/>
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td><label for="filename_txt"/></td>
+                                    <td style="padding-left: 20px;">
+                                        <field name="file_txt" filename="filename_txt" widget="binary"/>
+                                        <field name="filename_txt" invisible="True"/>
+                                        <field name="code" invisible="True"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <notebook>
+                            <page string="Detalle">
+                                <field name="line_ids">
+                                    <tree  default_order='code'>
+                                        <field name="code" invisible="True"/>
+                                        <field name="account_id"/>
+                                        <field name="debit" sum="Total débito"/>
+                                        <field name="credit" sum="Total crédito"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- Sequences-->
+        <record model="ir.sequence" id="sequence_report_ple_06">
+            <field name="name">Libro Mayor</field>
+            <field name="code">report.ple.06</field>
+            <field name="prefix">LM-</field>
+            <field name="padding">3</field>
+        </record>
+
+        <!-- Reports -->
+        <report  id="ple_report__06" model="report.ple.06" string="Libro Mayor(Excel)"  report_type="xlsx"
+                  name="ple.06" file="Libro Mayor" attachment_use="False"/>
+    </data>
+</odoo>

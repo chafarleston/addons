@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_partner_form">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='city']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='zip']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='state_id']" position="replace"/>
+            <xpath expr="//field[@name='country_id']" position="after">
+                <field name="state_id" attrs="{'readonly': [('country_id', '=', False)]}" placeholder="Departamento" class="o_address_state"
+                       required="1" options='{"no_open": True}'/>
+                <field name="l10n_pe_province_id" attrs="{'readonly': [('state_id', '=', False)]}" placeholder="Provincia" class="o_address_state"
+                       required="1" options='{"no_open": True}'/>
+                <field name="l10n_pe_district_id" attrs="{'readonly': [('l10n_pe_province_id', '=', False)]}" placeholder="Distrito"
+                       required="1" class="o_address_state" options='{"no_open": True}'/>
+            </xpath>
+            <xpath expr="//field[@name='child_ids']/form//field[@name='city']" position="attributes">
+               <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='child_ids']/form//field[@name='zip']" position="attributes">
+               <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='child_ids']/form//field[@name='state_id']" position="replace"/>
+            <xpath expr="//field[@name='child_ids']/form//field[@name='country_id']" position="after">
+                <field name="state_id" attrs="{'readonly': [('country_id', '=', False)]}" placeholder="Departamento" class="o_address_state" options='{"no_open": True}'/>
+                <field name="l10n_pe_province_id" attrs="{'readonly': [('state_id', '=', False)]}" placeholder="Provincia" class="o_address_state" options='{"no_open": True}'/>
+                <field name="l10n_pe_district_id" attrs="{'readonly': [('l10n_pe_province_id', '=', False)]}"  placeholder="Distrito" class="o_address_state" options='{"no_open": True}'/>
+             </xpath>
+        </field>
+    </record>
+</odoo>

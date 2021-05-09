@@ -1,0 +1,24 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="pos_config_base">
+            <field name="name">pos.config.base</field>
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="inside">
+                    <notebook>
+                        <page string="CPE">
+                            <group>
+                                <field name="l10n_pe_invoice_journal_ids" widget="many2many_tags"/>
+                                <field name="l10n_pe_pos_auto_invoice"/>
+                                <field name="l10n_pe_default_partner"/>
+                                <field name="l10n_pe_set_qty_by_amount"/>
+                                <field name="l10n_pe_cpe_url_consult"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

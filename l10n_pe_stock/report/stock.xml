@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="paperformat_report_stock_picking_cpe" model="report.paperformat">
+		    <field name="name">FORMATO PERSONALIZADO GUIA DE REMISIÓN-A4</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">297</field>
+            <field name="page_width">210</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">20</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">5</field>
+            <field name="margin_right">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">1</field>
+            <field name="dpi">160</field>
+        </record>
+        <report id="action_report_stock_picking_cpe" string="Stock CPE" model="stock.picking" report_type="qweb-pdf" print_report_name="object._get_document_name()"
+            file="l10n_cpe_stock.report_stock_picking_cpe" name="l10n_pe_stock.report_stock_picking_cpe" paperformat="paperformat_report_stock_picking_cpe"/>
+
+        <template id="report_stock_picking_cpe">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                <div class="page">
+                   <div class="article o_report_layout_standard">
+                       <div class="container">
+                           <div class="row">
+                               <div class="col-xs-8">
+                                   <div class="container">
+                                       <div class="row">
+                                           <div class="col-xs-4">
+                                               <t t-if="o.company_id.logo">
+                                                   <div class="text-center" >
+                                                       <img  align="center" t-attf-src="data:image/*;base64,{{o.company_id.logo}}" height="70px" width="70px"/>
+                                                   </div>
+                                               </t>
+                                           </div>
+                                           <div class="col-xs-8">
+                                               <t t-esc="o.company_id.name"/><br/>
+                                               <span>
+                                                    <t t-esc="o.company_id.street"/>
+                                               </span><br/>
+                                               <span>
+                                                    <t t-esc="o.company_id.state_id.name"/> -
+                                                    <t t-esc="o.company_id.l10n_pe_province_id.name"/> -
+                                                    <t t-esc="o.company_id.l10n_pe_district_id.name"/>
+                                               </span><br/>
+                                               <span>
+                                                   <t t-esc="o.company_id.website[8:]"/>
+                                               </span>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                               <div class="col-xs-4" style="bo-style: solid; bo-width: 1px; padding: 0px;">
+                                   <p t-if="o.picking_type_id.warehouse_id.l10n_pe_send_sunat"  style="background-color:#000;" >
+                                       <font color="white">
+                                           <t t-if="o.picking_type_id.warehouse_id.l10n_pe_send_sunat"><b>GUIA DE REMISIÓN ELECTRÓNICA </b></t>
+                                       </font>
+                                   </p>
+                                   <p style="margin-left: 5px;">
+                                       <span><b>RUC: </b><span t-esc="o.company_id.partner_id.l10n_pe_document_number"/></span><br/>
+                                       <span><b>SERIE: </b><span t-esc="o.l10n_pe_number"/></span><br/>
+                                   </p>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="container" style="margin-top: 20px;">
+                           <div class="row">
+                               <div class="col-xs-8">
+                                   <span><b>DNI/RUC: </b><t t-esc="o.partner_id.l10n_pe_document_number"/></span><br/>
+                                   <span><b>RAZÓN SOCIAL: </b><t t-esc="o.partner_id.name"/></span><br/>
+                                   <span><b>DIRECCIÓN: </b><t t-esc="o.partner_id.street"/></span>
+                               </div>
+                               <div class="col-xs-4">
+                                   <span><b>FECHA: </b><t t-esc="o.scheduled_date.strftime('%d/%m/%Y')"/></span><br/>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="container" style="margin-top: 20px;">
+                           <div class="row">
+                               <table class="table">
+                                   <thead>
+                                       <tr>
+                                           <th>CANTIDAD</th>
+                                           <th>UNIDAD</th>
+                                           <th>DESCRIPCIÓN</th>
+                                           <th>DESTINO</th>
+                                       </tr>
+                                   </thead>
+                                   <tbody>
+                                       <t t-foreach="o.move_lines" t-as="line">
+                                           <tr>
+                                               <td><span t-esc="line.quantity_done"/></td>
+                                               <td><span t-esc="line.product_uom.name"/></td>
+                                               <td><span t-esc="line.product_id.name"/><br/></td>
+                                               <td><span t-esc="line.location_dest_id.display_name"/></td>
+                                           </tr>
+                                       </t>
+                                   </tbody>
+                               </table>
+                           </div>
+                       </div>
+                       <div class="container">
+                           <div class="row">
+                               <div class="col-xs-7">
+                                   <!--<p t-if="o.journal_id.is_cpe" ><strong>Resumen: </strong> <br />
+                                       <span t-esc="o.pe_digest"/>
+                                   </p>-->
+                                   <div class="col-xs-12" t-if="o.picking_type_id.warehouse_id.l10n_pe_send_sunat" style="padding: 2mm">
+                                       <img t-if="o.sunat_qr_code" t-att-src="'data:image/png;base64,%s' %to_text(o.sunat_qr_code)"
+                                            class="img-responsive center-block" style="width: 40mm;  height: 40mm;" />
+                                   </div>
+                                   <p class="text-center">
+                                       Representacion impresa de:
+                                       <span t-field="o.picking_type_id.warehouse_id.l10n_pe_send_sunat"/>, consulte en
+                                       <span t-field="o.company_id.website"/><br />
+                                   </p>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+                </div>
+            </t>
+            </t>
+
+        </template>
+    </data>
+</odoo>

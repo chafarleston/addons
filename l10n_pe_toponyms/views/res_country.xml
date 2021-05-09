@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Province -->
+    <record id="view_l10n_pe_res_country_province_tree" model="ir.ui.view">
+        <field name="name">l10n_pe.res.country.province.tree</field>
+        <field name="model">l10n_pe.res.country.province</field>
+        <field name="arch" type="xml">
+            <tree string="Province">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="state_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_l10n_pe_res_country_province_form" model="ir.ui.view">
+        <field name="name">l10n_pe.res.country.province.form</field>
+        <field name="model">l10n_pe.res.country.province</field>
+        <field name="arch" type="xml">
+            <form string="Province">
+                <group>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="state_id" options='{"no_open": True}'/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_l10n_pe_country_province" model="ir.actions.act_window">
+        <field name="name">Provinces</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">l10n_pe.res.country.province</field>
+        <field name="view_type">form</field>
+        <field name="view_id" ref="view_l10n_pe_res_country_province_tree"/>
+        <field name="help">You can manage the different provinces you are working on from here.
+            Each province is attached to one country.
+        </field>
+    </record>
+
+    <!-- District -->
+    <record id="view_l10n_pe_res_country_district_tree" model="ir.ui.view">
+        <field name="name">l10n_pe.res.country.district.tree</field>
+        <field name="model">l10n_pe.res.country.district</field>
+        <field name="arch" type="xml">
+            <tree string="District">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="province_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_l10n_pe_res_country_district_form" model="ir.ui.view">
+        <field name="name">l10n_pe.res.country.district.form</field>
+        <field name="model">l10n_pe.res.country.district</field>
+        <field name="arch" type="xml">
+            <form string="District">
+                <group>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="province_id" options='{"no_open": True}'/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_country_district" model="ir.actions.act_window">
+        <field name="name">Districts</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">l10n_pe.res.country.district</field>
+        <field name="view_type">form</field>
+        <field name="view_id" ref="view_l10n_pe_res_country_district_tree"/>
+        <field name="help">You can manage the different districts you are working on from here.
+            Each district is attached to one country.
+        </field>
+    </record>
+</odoo>

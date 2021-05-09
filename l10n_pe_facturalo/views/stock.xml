@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="view_stock_picking_form" model="ir.ui.view">
+			<field name="name">stock.picking.form</field>
+			<field name="model">stock.picking</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="l10n_pe_stock.view_stock_picking_form"/>
+			<field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="replace">
+                    <field name="partner_id"
+                        string="Cliente"
+                        on_change="1"
+                        can_create="true"
+                        can_write="true"
+                        modifiers="{'readonly':[['state','in',['cancel','done']]]}"
+                        domain="[('is_company', '=', True)]"/>
+                </xpath>
+                <xpath expr="//field[@name='state']" position="before">
+                    <button name="action_json_generate" type="object" string="Obtener JSON" attrs="{'invisible': [('l10n_pe_is_internal_document', '=', True)]}"/>
+                    <button name="send_api_facturalo_document" type="object" string="Enviar a sunat" class="oe_highlight"
+                            attrs="{'invisible': ['|',('l10n_pe_is_internal_document', '=', True),('state', '!=', 'done'),('l10n_pe_internal_serie_id', '!=', '')]}"/>
+                </xpath>
+                <xpath expr="//page[@name='i_guide']" position="after">
+                    <page string="Guia electrónica"  name="e_guide" attrs="{'invisible': [('l10n_pe_is_internal_document','=', True)]}">
+                        <group string="Repuesta sunat">
+                            <field name="l10n_pe_facturalo_filename_pdf" invisible="True"/>
+                            <field name="l10n_pe_facturalo_filename_xml" invisible="True"/>
+                            <field name="l10n_pe_facturalo_filename_cdr" invisible="True"/>
+                            <field name="l10n_pe_facturalo_filename_json" invisible="True"/>
+                            <field name="l10n_pe_facturalo_pdf" filename="l10n_pe_facturalo_filename_pdf"/>
+                            <field name="l10n_pe_facturalo_xml" filename="l10n_pe_facturalo_filename_xml"/>
+                            <field name="l10n_pe_facturalo_cdr" filename="l10n_pe_facturalo_filename_cdr"/>
+                            <field name="l10n_pe_facturalo_json" filename="l10n_pe_facturalo_filename_json"/>
+                            <field name="l10n_pe_facturalo_msg" attrs="{'invisible': [('l10n_pe_facturalo_msg', '=', False)]}"/>
+                            <field name="l10n_pe_facturalo_external" readonly="1" groups="base.group_no_one"/>
+                            <field name="l10n_pe_facturalo_hash" readonly="1" groups="base.group_no_one"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

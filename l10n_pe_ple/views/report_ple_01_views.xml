@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="view_report_ple_01_tree" model="ir.ui.view">
+      <field name="name">report.ple.01.form</field>
+      <field name="model">report.ple.01</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="company_id"/>
+          <field name="range_id"/>
+          <field name="indicator_operation"/>
+          <field name="indicator_content"/>
+          <field name="currency_id"/>
+          <field name="state"/>
+        </tree>
+      </field>
+    </record>
+    <record id="view_report_ple_01_form" model="ir.ui.view">
+      <field name="name">report.ple.01.form</field>
+      <field name="model">report.ple.01</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+            <button name="action_generate" string="Generar" type="object" class="oe_highlight" states="draft,validated"/>
+            <button name="action_declare" string="Declarar" type="object" class="oe_highlight" states="validated"/>
+            <field name="state" widget="statusbar"/>
+          </header>
+          <sheet>
+            <div style="width: 80%;">
+              <table>
+                <tr>
+                  <td><label for="company_id"/></td>
+                  <td style="padding-left: 20px;"><field name="company_id" style="width: 100%;"/></td>
+                </tr>
+                <tr>
+                  <td><label for="range_id"/></td>
+                  <td style="padding-left: 20px;"><field name="range_id" style="width: 100%;"/></td>
+                </tr>
+                <tr>
+                  <td><label for="indicator_operation"/></td>
+                  <td style="padding-left: 20px;"><field name="indicator_operation" style="width: 100%;"/></td>
+                </tr>
+                <tr>
+                  <td><label for="indicator_content"/></td>
+                  <td style="padding-left: 20px;"><field name="indicator_content" style="width: 100%;"/></td>
+                </tr>
+                <tr>
+                  <td><label for="currency_id"/></td>
+                  <td style="padding-left: 20px;"><field name="currency_id" style="width: 100%;"/></td>
+                </tr>
+                <tr>
+                  <td><b>Efectivo TXT</b></td>
+                  <td style="padding-left: 20px;">
+                      <field name="filename_txt" invisible="True"/>
+                      <field name="file_txt" filename="filename_txt" widget="binary"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="file_current_account"/></td>
+                  <td style="padding-left: 20px;">
+                      <field name="filename_current_account" invisible="True"/>
+                      <field name="file_current_account" filename="filename_current_account" widget="binary"/>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="activity_ids" widget="mail_activity"/>
+            <field name="message_ids" widget="mail_thread"/>
+          </div>
+        </form>
+      </field>
+    </record>
+    <!-- Sequences-->
+    <record model="ir.sequence" id="sequence_report_ple_01">
+      <field name="name">Libro caja</field>
+      <field name="code">report.ple.01</field>
+      <field name="prefix">LC-</field>
+      <field name="padding">3</field>
+    </record>
+
+    <!-- Reports -->
+    <report  id="report_ple_01" model="report.ple.01" string="Libro diario(Excel)"  report_type="xlsx"
+             name="ple.01" file="Libro Caja" attachment_use="False"/>
+  </data>
+</odoo>

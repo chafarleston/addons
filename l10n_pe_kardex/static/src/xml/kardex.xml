@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+    <t t-name="kardex">
+        <div style="margin-left: 500px;">
+            <button  type="button" class="btn btn-success btn-generate">GENERAR</button><br/><br/>
+        </div>
+        <div>
+            <table id="product_table" class="table table-bordered table-hover">
+            <thead>
+                <tr style="background-color: #EEEEEE; position: sticky;
+                 font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px;">
+                    <th scope="col" rowspan="2" class="text-center">Fecha</th>
+                    <th scope="col" rowspan="2" class="text-center">Nº de documento</th>
+                    <th scope="col" rowspan="2" class="text-center">Nro. de operación</th>
+                    <th scope="col" rowspan="2" class="text-center">Nombre</th>
+                    <th scope="col" rowspan="2" class="text-center">Tipo de operación</th>
+                    <th scope="col" rowspan="2" class="text-center">Código de barras</th>
+                    <th scope="col" rowspan="2" class="text-center">Ingreso</th>
+                    <th scope="col" rowspan="2" class="text-center">Salida</th>
+                    <th scope="col" rowspan="2" class="text-center">Saldo</th>
+                    <th scope="col" rowspan="2" class="text-center">Doc. de origen</th>
+                </tr>
+            </thead>
+            <tbody class="product_table_body">
+
+            </tbody>
+        </table>
+        </div>
+    </t>
+</template>

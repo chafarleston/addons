@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="report_ple_05" model="ir.rule">
+            <field name="name">Ple 05 por compañia</field>
+            <field ref="model_report_ple_05" name="model_id"/>
+            <field name="domain_force">[('company_id', '=', user.company_id.id)]</field>
+            <field name="groups" eval="[(4, ref('account.group_account_invoice'))]"/>
+        </record>
+        <record id="report_ple_06" model="ir.rule">
+            <field name="name">Ple 06 por compañia</field>
+            <field ref="model_report_ple_06" name="model_id"/>
+            <field name="domain_force">[('company_id', '=', user.company_id.id)]</field>
+            <field name="groups" eval="[(4, ref('account.group_account_invoice'))]"/>
+        </record>
+
+        <record id="report_ple_08" model="ir.rule">
+            <field name="name">Ple 08 por compañia</field>
+            <field ref="model_report_ple_08" name="model_id"/>
+            <field name="domain_force">[('company_id', '=', user.company_id.id)]</field>
+            <field name="groups" eval="[(4, ref('account.group_account_invoice'))]"/>
+        </record>
+
+        <record id="report_ple_13" model="ir.rule">
+            <field name="name">Ple 13 por compañia</field>
+            <field ref="model_report_ple_13" name="model_id"/>
+            <field name="domain_force">[('company_id', '=', user.company_id.id)]</field>
+            <field name="groups" eval="[(4, ref('account.group_account_invoice'))]"/>
+        </record>
+
+        <record id="report_ple_317" model="ir.rule">
+            <field name="name">Ple 317 por compañia</field>
+            <field ref="model_report_ple_317" name="model_id"/>
+            <field name="domain_force">[('company_id', '=', user.company_id.id)]</field>
+            <field name="groups" eval="[(4, ref('account.group_account_invoice'))]"/>
+        </record>
+
+        <record id="report_ple" model="ir.rule">
+            <field name="name">Ple por compañia</field>
+            <field ref="model_report_ple" name="model_id"/>
+            <field name="domain_force">[('company_id', '=', user.company_id.id)]</field>
+            <field name="groups" eval="[(4, ref('account.group_account_invoice'))]"/>
+        </record>
+    </data>
+</odoo>
