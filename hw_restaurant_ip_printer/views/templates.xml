@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets" inherit_id="pos_restaurant.assets" name="restaurant_netwrok_printer assets">
+        <xpath expr="." position="inside">
+            <!-- <script type="text/javascript" src="/hw_escpos_network_printer/static/src/js/devices.js"></script> -->
+            <!-- <script type="text/javascript" src="/hw_escpos_network_printer/static/src/js/screens.js"></script> -->
+            <script type="text/javascript" src="/hw_restaurant_ip_printer/static/src/js/multiprint.js"></script>
+        </xpath>
+    </template>
+</odoo>

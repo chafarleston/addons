@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="pos_restaurant_network_printer_form" model="ir.ui.view">
+        <field name="name">pos.restaurant.network.printer</field>
+        <field name="model">restaurant.printer</field>
+        <field name="inherit_id" ref="pos_restaurant.view_restaurant_printer_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='proxy_ip']" position="attributes">
+                <attribute name="string">IP Address:Port</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="pos_restaurant_network_printer_tree" model="ir.ui.view">
+        <field name="name">pos.restaurant.network.printer</field>
+        <field name="model">restaurant.printer</field>
+        <field name="inherit_id" ref="pos_restaurant.view_restaurant_printer"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='proxy_ip']" position="attributes">
+                <attribute name="string">IP Address:Port</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
