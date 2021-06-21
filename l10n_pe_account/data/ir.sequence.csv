@@ -1,7 +1,0 @@
-id,implementation,name,number_increment,number_next,padding,prefix
-ir_sequence_01,standard,FD01-,1,2,1,FD01-
-ir_sequence_02,standard,FC01-,1,2,1,FC01-
-ir_sequence_03,standard,BC01-,1,2,1,BC01-
-ir_sequence_04,standard,BD01-,1,2,1,BD01-
-ir_sequence_05,standard,F001-,1,2,1,F001-
-ir_sequence_06,standard,B001-,1,2,1,B001-

@@ -1,8 +1,0 @@
-id,name,code,type,show_on_dashboard,l10n_pe_document_type_id:id,l10n_pe_journal_debit_id:id,l10n_pe_journal_credit_id:id,l10n_pe_send_sunat,l10n_pe_is_synchronous,sequence_id:id
-account_journal_03,Nota de débito,FD01,sale,1,l10n_pe_sunat_data.pe_cpe_catalog1_4,,,1,1,l10n_pe_account.ir_sequence_01
-account_journal_04,Nota de crédito,FC01,sale,1,l10n_pe_sunat_data.pe_cpe_catalog1_3,,,1,1,l10n_pe_account.ir_sequence_02
-account_journal_05,Nota de credito,BC01,sale,1,l10n_pe_sunat_data.pe_cpe_catalog1_3,,,1,0,l10n_pe_account.ir_sequence_03
-account_journal_06,Nota de débito,BD01,sale,1,l10n_pe_sunat_data.pe_cpe_catalog1_4,,,1,0,l10n_pe_account.ir_sequence_04
-account_journal_01,Factura electrónica,F001,sale,1,l10n_pe_sunat_data.pe_cpe_catalog1_1,account_journal_04,account_journal_05,1,1,l10n_pe_account.ir_sequence_05
-account_journal_02,Boleta electrónica,B001,sale,1,l10n_pe_sunat_data.pe_cpe_catalog1_2,account_journal_06,account_journal_05,1,0,l10n_pe_account.ir_sequence_06
-
